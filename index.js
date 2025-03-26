@@ -8,7 +8,7 @@ crud operations :
 
 const express = require("express");
 const app = express();
-const port = 8080;
+const port = 3000;
 const path = require("path");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -64,6 +64,10 @@ app.post("/posts", (req, res) => {
 
 app.get("/posts", (req, res) => {
   res.render("index.ejs", { posts });
+});
+
+app.get("/", (req, res) => {
+  res.redirect("/posts");
 });
 
 app.get("/posts/:id", (req, res) => {
